@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.views import View 
 
 # Create your views here.
 from rest_framework import generics, permissions
@@ -16,3 +18,8 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
 	permission_classes = (IsAuthorOrReadOnly, )
 	queryset = Post.objects.all()
 	serializer_class = PostSerializer
+
+class HomePageView(View):
+	def get(self, request):
+		html = '<h1>This is home page</h1>'
+		return HttpResponse(html)

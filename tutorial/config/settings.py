@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1kl#40vd*7z1rd*f%)yi$5qpp6mls74*$se9)h53vzjlgglknz'
+SECRET_KEY = 'django-insecure-kswot4om*(q(y)_-*53%425fv5*et1n=89$op3$9gr!273$ar6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,21 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django.contrib.sites',
 
-    # 3rd apps
+    # 3rd party 
     'rest_framework',
-    'rest_framework.authtoken',
-    # 'dj_rest_auth',
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
-    # 'dj_rest_auth.registration',
-
-    # Local
-    'accounts',
-    'posts',
-
 ]
 
 MIDDLEWARE = [
@@ -146,15 +134,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
-    'DEFAULT_AUTHENTICATION_CLASSES': [  # new
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication'
-    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
 }
-
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# SITE_ID = 1
-AUTH_USER_MODEL = 'accounts.CustomUser'
