@@ -20,7 +20,7 @@ from posts.views import HomePageView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomePageView.as_view()),
-    path('api/blog/', include('posts.urls')),
+    path('api/posts/', include('posts.urls')),
     path('api/accounts/', include('accounts.urls'), name='accounts_api'),
     # path('api-auth/', include('rest_framework.urls')),
     # path('api/v1/dj-rest-auth/', include('dj_rest_auth.urls')),

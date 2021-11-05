@@ -154,6 +154,8 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication'
     ],
+    'DEFAULT_PAGINATION_CLASSES':'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 1,
 }
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
