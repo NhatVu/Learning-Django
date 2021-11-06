@@ -1,19 +1,19 @@
 from rest_framework import serializers
-from .models import CustomUser 
+from .models import Account
 
 class UserSerializer(serializers.ModelSerializer):
 	# add other extra fields or overwrite existing fields
 	password2 = serializers.CharField(style={'input_type': 'password'}, write_only=True)
 	
 	class Meta:
-		model = CustomUser 
+		model = Account 
 		fields = ('username', 'email', 'password', 'password2')
 		# write only will exclude field from GET request
 		extra_kwargs = {'password': {'write_only': True, 'min_length': 8}}
 
 	# override save method 
 	def save(self):
-		user = CustomUser(
+		user = Account(
 			email = self.validated_data['email'],
 			username = self.validated_data['username']
 		)

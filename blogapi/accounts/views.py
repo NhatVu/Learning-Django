@@ -5,13 +5,13 @@ from rest_framework import generics, permissions, serializers
 from rest_framework import status 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
-from .models import CustomUser
+from .models import Account
 from .serializers import UserSerializer 
 from rest_framework.authtoken.models import Token
 
 class UserList(generics.ListAPIView):
 	# permission_classes = [permissions.IsAuthenticated]
-	queryset = CustomUser.objects.all()
+	queryset = Account.objects.all()
 	serializer_class = UserSerializer
 
 @api_view(['POST',])
