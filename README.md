@@ -7,22 +7,40 @@
 	- [Doing] Custom User model
 	- [Done] Using Postgres db, replace sqlite 
 	- Unit testing 
-	- Environment variable to seperate dev/deploy mode 
-	- User login, logout, registration 
-	- Token based authentication for API
-	- Custom Permission for API 
-	- Adding LRU cache, use Redis (how to monitor)
-	- Event to clear cache when deploy >= 2 server. 
+	- Adding LRU cache, use MemCached (how to monitor)
+	- Using RabitMQ for pub/sub event. Use it to clear local cache when deploy >= 2 server. Demo how to use RabitMQ
 	- Security: cors, injection, XSS. Using library of owasp
-	- Adding logger, config rotation 
-	
-- Shorten link app 
-- Login with facebook, google
-- Deploy aws, config to deploy production wsgi, config SSL
-- best practice, refactoring code
-- Stress test service 
-- UI for monitor traffic, request rate 
-- apply ci/cd
-- auto restart service when it dies 
-- nearly real-time search with elastic search: search poll title, user, ... 
-- rate limiter (use redis)
+
+
+- Basic Authentication
+	- Registration/Login/Logout API
+	- Token based authentication for API
+	- Permission for API 
+	- Unit test
+
+- Deployment 
+	- Environment variable to seperate dev/deploy mode 
+	- Deploy GCP, config to deploy production wsgi, config SSL
+	- Create Docker image for this app. Deploy using Kubernetes
+	- Apply CI/CD
+
+- Monitor service after deploy 
+	- Stress test service 
+	- UI for monitor traffic, request rate 
+	- auto restart service when it dies 
+
+- Rate Limiter 
+	- Set RateLimit for API. 
+	- Use Redis to create RateLimit service
+
+- Elasticsearch
+	- Intergrate Elasticsearch for searching user, blog title.
+
+- Logger
+	- Adding logger for service
+	- Config rotation log 
+	- How to grep log, debug from log, log format 
+
+- *[Option]* Shorten link app 
+- *[Option]* Login with facebook, google
+
